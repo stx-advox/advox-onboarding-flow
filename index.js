@@ -1,8 +1,6 @@
-import { config } from "dotenv";
-
-config();
 
 const token = process.env["DISCORD_TOKEN"];
+
 
 // Require the necessary discord.js classes
 import {
@@ -103,7 +101,6 @@ client.once("ready", async () => {
       const isNameValid = await checkNameValid(name);
       const nameEscaped = name.replace(/\./g, "-");
       const isNameSet = ledger.accountByName(nameEscaped);
-      console.log(isNameSet);
       if (!isNameValid || isNameSet) {
         return message.reply(
           "hey dude that name is not owned by any address, or is already registered, could you check again?"
@@ -117,9 +114,7 @@ client.once("ready", async () => {
       );
 
       // update the name of the identity related with the author's id with the new bns name
-      console.log(nameEscaped);
       ledger.renameIdentity(discordAccount.identity.id, nameEscaped);
-      changes = true;
     }
   });
 
