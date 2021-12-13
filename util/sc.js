@@ -1,17 +1,10 @@
 import { sourcecred } from "sourcecred";
 
-const writableStorage = new sourcecred.ledger.storage.WritableGithubStorage({
+const storage = new sourcecred.ledger.storage.WritableGithubStorage({
   apiToken: process.env.GH_API_TOKEN,
   repo: process.env.REPO,
   branch: process.env.BRANCH,
 });
-
-const storage = new sourcecred.ledger.storage.GithubStorage({
-  apiToken: process.env.GH_API_TOKEN,
-  repo: process.env.REPO,
-  branch: process.env.BRANCH,
-});
-storage.set = writableStorage.set;
 
 export const manager = new sourcecred.ledger.manager.LedgerManager({ storage });
 
