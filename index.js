@@ -119,9 +119,13 @@ client.once("ready", async () => {
       // update the name of the identity related with the author's id with the new bns name
       console.log(nameEscaped);
       ledger.renameIdentity(discordAccount.identity.id, nameEscaped);
-      await persistLedger();
+      changes = true;
     }
   });
+
+  setInterval(async () => {
+    await persistLedger();
+  }, 24 * 60 * 60 * 1000);
 });
 
 // Login to Discord with your client's token
