@@ -1,6 +1,4 @@
-
 const token = process.env["DISCORD_TOKEN"];
-
 
 // Require the necessary discord.js classes
 import {
@@ -25,7 +23,7 @@ const PROPS_CHANNEL = "872124900431769620";
 const VOUCH_CHANNEL = "872534998790586389";
 const STACKS_GUILD = "621759717756370964";
 const JOIN_REQUESTS_CHANNEL = "892790172444414012";
-const SC_BOT_COMMANDS_CHANNEL = "918116813869563984";
+const SC_BOT_COMMANDS_CHANNEL = "873229729363275808";
 const UPDATE_NAME_COMMAND = "!sc update-bns-name";
 
 // Create a new client instance
