@@ -1,31 +1,32 @@
 {
-  "name": "advox-onboarding-flow",
-  "version": "1.0.0",
-  "description": "a discord bot that helps the advocates' welcome team",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "hz (huzayen@pm.me)",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^13.3.1",
-    "node-fetch": "^3.1.0",
-    "sourcecred": "^0.10.2"
-  },
-  "devDependencies": {
-    "dotenv": "^10.0.0",
-    "node": "^16.13.1"
-  },
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hozzjss/advox-onboarding-flow.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/hozzjss/advox-onboarding-flow/issues"
-  },
-  "homepage": "https://github.com/hozzjss/advox-onboarding-flow#readme"
+    "name": "advox-onboarding-flow",
+    "version": "1.0.0",
+    "description": "a discord bot that helps the advocates' welcome team",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node --loader ts-node/esm index.ts"
+    },
+    "author": "hz (huzayen@pm.me)",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^13.3.1",
+        "node-fetch": "^3.1.0",
+        "sourcecred": "^0.10.2"
+    },
+    "devDependencies": {
+        "dotenv": "^10.0.0",
+        "node": "^16.13.1",
+        "ts-node": "^10.4.0"
+    },
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hozzjss/advox-onboarding-flow.git"
+    },
+    "keywords": [],
+    "bugs": {
+        "url": "https://github.com/hozzjss/advox-onboarding-flow/issues"
+    },
+    "homepage": "https://github.com/hozzjss/advox-onboarding-flow#readme"
 }

@@ -1,5 +1,7 @@
+import { config } from "dotenv";
 import { sourcecred } from "sourcecred";
 
+config();
 const storage = new sourcecred.ledger.storage.WritableGithubStorage({
   apiToken: process.env.GH_API_TOKEN,
   repo: process.env.REPO,
