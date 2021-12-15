@@ -1,1 +1,8 @@
 run="npm i && npm start"
+[packager]
+language = "nodejs-npm"
+  [packager.features]
+  # Enables the package search sidebar
+  packageSearch = true
+  # Enabled package guessing
+  guessImports = false
