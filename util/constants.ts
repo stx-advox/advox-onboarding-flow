@@ -17,9 +17,9 @@ export const advocatesChannels = [DIDATHING_CHANNEL, PROPS_CHANNEL];
 
 export const INTERVIEW_QUESTIONS_COMPONENT = {
   content: `Hello there and welcome to the stacks advocates program!
-  a welcomer will be reviewing your answers so read carefully
-  Take your time to answer by sending messages in this thread
-  and then click on "All done, check answers!" whenever you feel comfortable with your answers!!`,
+a welcomer will be reviewing your answers so read carefully
+Take your time to answer by sending messages in this thread
+and then click on "All done, check answers!" whenever you feel comfortable with your answers!!`,
   components: [
     {
       type: "ACTION_ROW",
