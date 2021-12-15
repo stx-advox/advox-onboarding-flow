@@ -36,10 +36,10 @@ client.once("ready", async () => {
 
   console.log("Ready!");
 
-  // handleGiveTempRole(client);
-  // handleVouch(client);
-  // handleActivateAdvocate(client);
-  // handleSetBNSName(client, ledger);
+  handleGiveTempRole(client);
+  handleVouch(client);
+  handleActivateAdvocate(client);
+  handleSetBNSName(client, ledger);
   handleInterview(client);
 
   setInterval(async () => {
