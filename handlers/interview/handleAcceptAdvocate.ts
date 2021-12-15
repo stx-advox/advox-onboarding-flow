@@ -5,6 +5,7 @@ import {
   SC_BOT_COMMANDS_CHANNEL,
   START_HERE_CHANNEL,
   RESOURCES_CHANNEL,
+  UPDATE_NAME_COMMAND,
   // @ts-ignore
 } from "../../util/constants.ts";
 
@@ -27,7 +28,7 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
 
 like so: Props to @someone for welcoming me to the advocates program
 
-- Go to <#${SC_BOT_COMMANDS_CHANNEL}> and send \`sc update-bns-name [your btc name]\` so that we know where to send your rewards!
+- Go to <#${SC_BOT_COMMANDS_CHANNEL}> and send \`${UPDATE_NAME_COMMAND} [your btc name]\` so that we know where to send your rewards!
 
 - Check out <#${START_HERE_CHANNEL}> and <#${RESOURCES_CHANNEL}> for more information!`
       );
