@@ -1,9 +1,9 @@
 // Require the necessary discord.js classes
-import { Client, Intents, TextChannel } from "discord.js";
+import { Client, Intents } from "discord.js";
 // @ts-ignore
 import { loadLedger, persistLedger } from "./util/sc.ts";
 // @ts-ignore
-import { JOIN_REQUESTS_CHANNEL, STACKS_GUILD } from "./util/constants.ts";
+import { STACKS_GUILD } from "./util/constants.ts";
 import { config } from "dotenv";
 // @ts-ignore
 import { handleGiveTempRole } from "./handlers/handleGiveTempRole.ts";
@@ -13,6 +13,8 @@ import { handleVouch } from "./handlers/handleVouch.ts";
 import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate.ts";
 // @ts-ignore
 import { handleSetBNSName } from "./handlers/handleSetBNSName.ts";
+// @ts-ignore
+import { handleInterview } from "./handlers/handleInterview.ts";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
@@ -34,10 +36,11 @@ client.once("ready", async () => {
 
   console.log("Ready!");
 
-  handleGiveTempRole(client);
-  handleVouch(client);
-  handleActivateAdvocate(client);
-  handleSetBNSName(client, ledger);
+  // handleGiveTempRole(client);
+  // handleVouch(client);
+  // handleActivateAdvocate(client);
+  // handleSetBNSName(client, ledger);
+  handleInterview(client);
 
   setInterval(async () => {
     await persistLedger();
