@@ -9,7 +9,7 @@ export const handleFinishAnswering = async (interaction: Interaction) => {
     !interaction.replied
   ) {
     await interaction.reply({
-      content: `Thank you for that, we're glad to have you, let's connect you to the <@&${"ADVOCATE_WELCOME_ROLE"}> team`,
+      content: `Thank you for that, we're glad to have you, let's connect you to the <@&${ADVOCATE_WELCOME_ROLE}> team`,
       embeds: [
         {
           color: "AQUA",
