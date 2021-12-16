@@ -1,11 +1,9 @@
 import { Client } from "discord.js";
-// @ts-ignore
-import { checkNameValid } from "../util/checkNameValid.ts";
+import { checkNameValid } from "../util/checkNameValid";
 import {
   SC_BOT_COMMANDS_CHANNEL,
   UPDATE_NAME_COMMAND,
-  // @ts-ignore
-} from "../util/constants.ts";
+} from "../util/constants";
 
 export const handleSetBNSName = (client: Client, ledger: any) => {
   client.on("messageCreate", async (message) => {

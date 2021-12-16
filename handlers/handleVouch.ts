@@ -3,10 +3,8 @@ import {
   ADVOCATE_ROLE,
   TEMP_ADVOCATE_ROLE,
   VOUCH_CHANNEL,
-  // @ts-ignore
-} from "../util/constants.ts";
-// @ts-ignore
-import { getStacksServer } from "../util/discordUtils.ts";
+} from "../util/constants";
+import { getStacksServer } from "../util/discordUtils";
 
 export const handleVouch = async (client: Client) => {
   const stacks = getStacksServer(client);

@@ -1,20 +1,13 @@
 // Require the necessary discord.js classes
 import { Client, Intents } from "discord.js";
-// @ts-ignore
-import { loadLedger, persistLedger } from "./util/sc.ts";
-// @ts-ignore
-import { STACKS_GUILD } from "./util/constants.ts";
+import { loadLedger, persistLedger } from "./util/sc";
+import { STACKS_GUILD } from "./util/constants";
 import { config } from "dotenv";
-// @ts-ignore
-import { handleGiveTempRole } from "./handlers/handleGiveTempRole.ts";
-// @ts-ignore
-import { handleVouch } from "./handlers/handleVouch.ts";
-// @ts-ignore
-import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate.ts";
-// @ts-ignore
-import { handleSetBNSName } from "./handlers/handleSetBNSName.ts";
-// @ts-ignore
-import { handleInterview } from "./handlers/handleInterview.ts";
+import { handleGiveTempRole } from "./handlers/handleGiveTempRole";
+import { handleVouch } from "./handlers/handleVouch";
+import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate";
+import { handleSetBNSName } from "./handlers/handleSetBNSName";
+import { handleInterview } from "./handlers/handleInterview";
 config();
 
 const token = process.env["DISCORD_TOKEN"];

@@ -8,14 +8,10 @@ import {
 import {
   JOIN_REQUESTS_CHANNEL,
   INTERVIEW_QUESTIONS_COMPONENT,
-  // @ts-ignore
-} from "../util/constants.ts";
-// @ts-ignore
-import { handleAcceptAdvocate } from "./interview/handleAcceptAdvocate.ts";
-// @ts-ignore
-import { handleBNSNameAnswer } from "./interview/handleBNSNameAnswer.ts";
-// @ts-ignore
-import { handleFinishAnswering } from "./interview/handleFinishAnswering.ts";
+} from "../util/constants";
+import { handleAcceptAdvocate } from "./interview/handleAcceptAdvocate";
+import { handleBNSNameAnswer } from "./interview/handleBNSNameAnswer";
+import { handleFinishAnswering } from "./interview/handleFinishAnswering";
 
 export const handleInterview = (client: Client) => {
   client.on("messageCreate", async (message) => {

@@ -4,10 +4,8 @@ import {
   JOIN_REQUESTS_CHANNEL,
   TEMP_ADVOCATE_ROLE,
   WELCOME_TEAM_ROLE_ID,
-  // @ts-ignore
-} from "../util/constants.ts";
-// @ts-ignore
-import { getStacksServer } from "../util/discordUtils.ts";
+} from "../util/constants";
+import { getStacksServer } from "../util/discordUtils";
 
 export const handleGiveTempRole = async (client: Client) => {
   const stacks = getStacksServer(client);

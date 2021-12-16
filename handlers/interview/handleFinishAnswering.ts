@@ -1,6 +1,5 @@
 import { ButtonInteraction, Interaction } from "discord.js";
-// @ts-ignore
-import { ADVOCATE_WELCOME_ROLE } from "../../util/constants.ts";
+import { ADVOCATE_WELCOME_ROLE } from "../../util/constants";
 
 export const handleFinishAnswering = async (interaction: Interaction) => {
   if (
