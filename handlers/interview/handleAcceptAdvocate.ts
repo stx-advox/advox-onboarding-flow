@@ -33,7 +33,7 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
         interaction.reply(
           `All good and done! <@${member.id}>, to complete the registration just a few steps:
 
-- If you feel grateful give props to your welcomer/s by mentioning them help in <#${PROPS_CHANNEL}>
+- If you feel grateful give props to your welcomer/s by mentioning them in <#${PROPS_CHANNEL}>
 
 like so: Props to @someone for welcoming me to the advocates program
 
