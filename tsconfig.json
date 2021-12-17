@@ -4,9 +4,7 @@
             "*": ["./*.d.ts"]
         },
         "downlevelIteration": true,
-        "target": "ES2020",
-        "module": "ES2020",
-        "moduleResolution": "node",
+        "module": "CommonJS",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
