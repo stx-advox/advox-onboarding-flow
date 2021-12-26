@@ -33,6 +33,7 @@ export const handleSetBNSName = (client: Client, ledger: any) => {
 
         // update the name of the identity related with the author's id with the new bns name
         ledger.renameIdentity(discordAccount.identity.id, nameEscaped);
+        ledger.activate(discordAccount.identity.id);
       }
     }
   });
