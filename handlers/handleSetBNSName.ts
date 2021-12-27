@@ -31,6 +31,12 @@ export const handleSetBNSName = (client: Client, ledger: any) => {
           `N\u0000sourcecred\u0000discord\u0000MEMBER\u0000user\u0000${message.author.id}\u0000`
         );
 
+        if (!discordAccount) {
+          message.reply(
+            "Sorry dude, did you just join the server today? try again tomorrow!"
+          );
+          return;
+        }
         // update the name of the identity related with the author's id with the new bns name
         ledger.renameIdentity(discordAccount.identity.id, nameEscaped);
         ledger.activate(discordAccount.identity.id);

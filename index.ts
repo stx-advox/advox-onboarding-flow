@@ -36,6 +36,7 @@ client.once("ready", async () => {
   handleInterview(client);
 
   setInterval(async () => {
+    await loadLedger();
     await persistLedger();
   }, 24 * 60 * 60 * 1000);
 });
