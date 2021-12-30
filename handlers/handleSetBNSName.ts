@@ -21,7 +21,7 @@ export const handleSetBNSName = (client: Client, ledger: any) => {
         `N\u0000sourcecred\u0000discord\u0000MEMBER\u0000user\u0000${message.author.id}\u0000`
       );
 
-      if (isNameValid && isNameSet && discordAccount) {
+      if (isNameValid && !isNameSet && discordAccount) {
         message.reply(
           "Aight, we'll use this bns name to send you your rewards!"
         );
@@ -35,9 +35,11 @@ export const handleSetBNSName = (client: Client, ledger: any) => {
         message.reply(
           "Sorry dude, did you just join the server today? try again tomorrow!"
         );
-      } else {
+      } else if (isNameSet) {
+        message.reply("Your btc name is already taken by another user");
+      } else if (!isNameValid) {
         message.reply(
-          "hey dude that name is not owned by any address, or is already registered, could you check again?"
+          "hey dude that name is not owned by any address could you check again?"
         );
       }
     }
