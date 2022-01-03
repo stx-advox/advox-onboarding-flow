@@ -25,7 +25,6 @@ const client = new Client({
 // When the client is ready, run this code (only once)
 client.once("ready", async () => {
   await client.guilds.fetch(STACKS_GUILD);
-  const ledger = await loadLedger();
 
   console.log("Ready!");
 

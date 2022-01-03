@@ -15,18 +15,23 @@ export const handleGiveTempRole = async (client: Client) => {
   await joinRequests.messages.fetch();
 
   client.on("messageReactionAdd", async (reaction, user) => {
-    const isJoinRequests = reaction.message.channelId === JOIN_REQUESTS_CHANNEL;
-    if (isJoinRequests) {
-      reaction = await reaction.fetch();
-      const reviewer = await stacks.members.fetch(user.id);
-      const isWelcomer = reviewer.roles.cache.has(WELCOME_TEAM_ROLE_ID);
-      const isAdvocate = reviewer.roles.cache.has(ADVOCATE_ROLE);
-      const message = await reaction.message.fetch();
-      const interviewee = await stacks.members.fetch(message.author.id);
-      const isInterviewDone = reaction.emoji.name === "✅";
-      if (isWelcomer && isAdvocate && isInterviewDone) {
-        await interviewee.roles.add(TEMP_ADVOCATE_ROLE);
+    try {
+      const isJoinRequests =
+        reaction.message.channelId === JOIN_REQUESTS_CHANNEL;
+      if (isJoinRequests) {
+        reaction = await reaction.fetch();
+        const reviewer = await stacks.members.fetch(user.id);
+        const isWelcomer = reviewer.roles.cache.has(WELCOME_TEAM_ROLE_ID);
+        const isAdvocate = reviewer.roles.cache.has(ADVOCATE_ROLE);
+        const message = await reaction.message.fetch();
+        const interviewee = await stacks.members.fetch(message.author.id);
+        const isInterviewDone = reaction.emoji.name === "✅";
+        if (isWelcomer && isAdvocate && isInterviewDone) {
+          await interviewee.roles.add(TEMP_ADVOCATE_ROLE);
+        }
       }
+    } catch (error) {
+      console.log("[handleGiveTempRole]:", error);
     }
   });
 };

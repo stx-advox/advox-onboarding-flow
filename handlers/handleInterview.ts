@@ -15,19 +15,23 @@ import { handleFinishAnswering } from "./interview/handleFinishAnswering";
 
 export const handleInterview = (client: Client) => {
   client.on("messageCreate", async (message) => {
-    const isJoinRequests = message.channelId === JOIN_REQUESTS_CHANNEL;
-    if (isJoinRequests) {
-      const member = message.member as GuildMember;
+    try {
+      const isJoinRequests = message.channelId === JOIN_REQUESTS_CHANNEL;
+      if (isJoinRequests) {
+        const member = message.member as GuildMember;
 
-      const thread = await message.startThread({
-        name: `Welcome ${member.nickname || member.user.username}!`,
-        autoArchiveDuration: "MAX",
-      });
-      const interviewQuestions = new MessagePayload(
-        thread,
-        INTERVIEW_QUESTIONS_COMPONENT
-      );
-      thread.send(interviewQuestions);
+        const thread = await message.startThread({
+          name: `Welcome ${member.nickname || member.user.username}!`,
+          autoArchiveDuration: "MAX",
+        });
+        const interviewQuestions = new MessagePayload(
+          thread,
+          INTERVIEW_QUESTIONS_COMPONENT
+        );
+        thread.send(interviewQuestions);
+      }
+    } catch (error) {
+      console.log("[handleInterview]:", error);
     }
   });
   client.on("interactionCreate", (interaction) => {
