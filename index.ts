@@ -32,13 +32,8 @@ client.once("ready", async () => {
   handleGiveTempRole(client);
   handleVouch(client);
   handleActivateAdvocate(client);
-  handleSetBNSName(client, ledger);
+  handleSetBNSName(client);
   handleInterview(client);
-
-  setInterval(async () => {
-    await loadLedger();
-    await persistLedger();
-  }, 24 * 60 * 60 * 1000);
 });
 
 // Login to Discord with your client's token
