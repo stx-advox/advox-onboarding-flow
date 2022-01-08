@@ -8,6 +8,7 @@ import { handleVouch } from "./handlers/handleVouch";
 import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate";
 import { handleSetBNSName } from "./handlers/handleSetBNSName";
 import { handleInterview } from "./handlers/handleInterview";
+import { handleDidathingPropsReactions } from "./handlers/handleDidathingPropsReactions";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
@@ -33,6 +34,7 @@ client.once("ready", async () => {
   handleActivateAdvocate(client);
   handleSetBNSName(client);
   handleInterview(client);
+  handleDidathingPropsReactions(client);
 });
 
 // Login to Discord with your client's token
