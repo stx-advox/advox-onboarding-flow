@@ -49,9 +49,9 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
           interaction,
           PROPS_CHANNEL
         )) as TextChannel;
-        // props.send(
-        //   `Props to <@${welcomer.id}> for welcoming our latest newcomer! check the interview here <#${thread.id}>!`
-        // );
+        props.send(
+          `Props to <@${welcomer.id}> for welcoming our latest newcomer! check the interview here <#${thread.id}>!`
+        );
       } else {
         await interaction.reply({
           ephemeral: true,
