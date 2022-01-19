@@ -28,6 +28,7 @@ export const handleBNSNameAnswer = async (interaction: Interaction) => {
       if (content) {
         interaction.reply({
           content,
+          ephemeral: true,
         });
       }
     }
