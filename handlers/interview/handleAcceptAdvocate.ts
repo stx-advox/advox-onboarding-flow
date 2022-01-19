@@ -33,27 +33,25 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
         const welcomer = interaction.user;
         const thread = (await interaction.channel?.fetch()) as ThreadChannel;
         const starterMessage = await thread.fetchStarterMessage();
-        if (starterMessage.member) {
-          const member = await starterMessage.member.fetch();
-
-          member.roles.add(TEMP_ADVOCATE_ROLE);
-          interaction.reply(
-            `All good and done! <@${member.id}>, to complete the registration just a few steps:
+        const guild = await thread.guild.fetch();
+        const member = await guild.members.fetch(starterMessage.author.id);
+        await member.roles.add(TEMP_ADVOCATE_ROLE);
+        await interaction.reply(
+          `All good and done! <@${member.id}>, to complete the registration just a few steps:
 
 - Let us know your latest contributions to the ecosystem here <#${DIDATHING_CHANNEL}>
 
 - Go to <#${SC_BOT_COMMANDS_CHANNEL}> and send \`${UPDATE_NAME_COMMAND} [your btc name]\` so that we know where to send your rewards!
 
 - Check out <#${START_HERE_CHANNEL}> and <#${RESOURCES_CHANNEL}> for more information!`
-          );
-        }
+        );
         const props = (await getChannelByIdFromInteraction(
           interaction,
           PROPS_CHANNEL
         )) as TextChannel;
-        props.send(
-          `Props to <@${welcomer.id}> for welcoming our latest newcomer! check the interview here <#${thread.id}>!`
-        );
+        // props.send(
+        //   `Props to <@${welcomer.id}> for welcoming our latest newcomer! check the interview here <#${thread.id}>!`
+        // );
       } else {
         await interaction.reply({
           ephemeral: true,
