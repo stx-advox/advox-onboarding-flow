@@ -1,14 +1,13 @@
 // Require the necessary discord.js classes
 import { Client, Intents } from "discord.js";
-import { loadLedger, persistLedger } from "./util/sc";
 import { STACKS_GUILD } from "./util/constants";
 import { config } from "dotenv";
 import { handleGiveTempRole } from "./handlers/handleGiveTempRole";
 import { handleVouch } from "./handlers/handleVouch";
 import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate";
-import { handleSetBNSName } from "./handlers/handleSetBNSName";
 import { handleInterview } from "./handlers/handleInterview";
 import { handleDidathingPropsReactions } from "./handlers/handleDidathingPropsReactions";
+import { handleSCBot } from "./handlers/sc-bot";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
@@ -32,7 +31,7 @@ client.once("ready", async () => {
   handleGiveTempRole(client);
   handleVouch(client);
   handleActivateAdvocate(client);
-  handleSetBNSName(client);
+  handleSCBot(client);
   handleInterview(client);
   handleDidathingPropsReactions(client);
 });
