@@ -45,9 +45,9 @@ export const handleTreasuryTx = async (client: Client) => {
 Check it out here ${getTxUrl(tx_id)}`;
 
         if (tx_status === "pending") {
-          channel.send(message);
+          await channel.send(message);
         } else if (tx_status === "success" && tx_type === "contract_call") {
-          channel.send(message.replace("sent", "confirmed"));
+          await channel.send(message.replace("sent", "confirmed"));
 
           const tx = (await txApi.getTransactionById({
             txId: tx_id,
