@@ -5,13 +5,11 @@ import {
   SelectMenuInteraction,
 } from "discord.js";
 
-import {
-  JOIN_REQUESTS_CHANNEL,
-  INTERVIEW_QUESTIONS_COMPONENT,
-} from "../util/constants";
+import { JOIN_REQUESTS_CHANNEL } from "../util/constants";
 import { handleAcceptAdvocate } from "./interview/handleAcceptAdvocate";
 import { handleBNSNameAnswer } from "./interview/handleBNSNameAnswer";
 import { handleFinishAnswering } from "./interview/handleFinishAnswering";
+import { INTERVIEW_QUESTIONS_COMPONENT } from "./interview/templates/interviewQuestionsTemplate";
 
 export const handleInterview = (client: Client) => {
   client.on("messageCreate", async (message) => {

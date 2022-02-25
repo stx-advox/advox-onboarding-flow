@@ -1,6 +1,6 @@
 import { ButtonInteraction, Interaction, ThreadChannel } from "discord.js";
 import { validateOnlyStarter } from "../../util/auth/interaction-only-starter";
-import { finishAnsweringText } from "../../util/constants";
+import { finishAnsweringText } from "./templates/finishAnswersTemplate";
 
 export const handleFinishAnswering = async (interaction: Interaction) => {
   try {
