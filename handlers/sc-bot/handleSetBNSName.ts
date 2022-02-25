@@ -1,4 +1,4 @@
-import { Client, Message } from "discord.js";
+import { Message } from "discord.js";
 import { persistLedger, loadLedger } from "../../util/sc";
 import { checkNameValid } from "../../util/checkNameValid";
 import { UPDATE_NAME_COMMAND } from "../../util/constants";

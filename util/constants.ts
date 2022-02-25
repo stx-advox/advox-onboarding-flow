@@ -10,6 +10,7 @@ export const SC_BOT_COMMANDS_CHANNEL = "873229729363275808";
 export const UPDATE_NAME_COMMAND = "!sc update-bns-name";
 export const DEACTIVATE_COMMAND = "!sc opt-out";
 export const PING_COMMAND = "!sc ping";
+export const HELP_COMMAND = "!sc help";
 export const ADVOCATE_WELCOME_ROLE = "908118835150856212";
 export const START_HERE_CHANNEL = "916371047102705704";
 export const RESOURCES_CHANNEL = "872646462675226654";

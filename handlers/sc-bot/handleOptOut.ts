@@ -1,4 +1,4 @@
-import { Client, Message } from "discord.js";
+import { Message } from "discord.js";
 import { persistLedger, loadLedger } from "../../util/sc";
 import { DEACTIVATE_COMMAND } from "../../util/constants";
 
