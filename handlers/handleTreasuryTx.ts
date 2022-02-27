@@ -31,14 +31,6 @@ export const handleTreasuryTx = async (client: Client) => {
     const socket = await connectWebSocketClient("ws://localhost:3999");
     const txApi = new TransactionsApi();
 
-    socket.subscribeMempool((event) => {
-      console.log(event);
-    });
-
-    socket.subscribeMicroblocks((event) => {
-      console.log(event);
-    });
-
     socket.subscribeAddressTransactions(
       "SPSTX06BNGJ2CP1F6WA8V49B6MYD784N6YZMK95G",
       async (update) => {
