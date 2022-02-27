@@ -28,10 +28,16 @@ function handleContractLogHex(repr: string) {
 
 export const handleTreasuryTx = async (client: Client) => {
   try {
-    const socket = await connectWebSocketClient(
-      "wss://stacks-node-api.mainnet.stacks.co/"
-    );
+    const socket = await connectWebSocketClient("ws://localhost:3999");
     const txApi = new TransactionsApi();
+
+    socket.subscribeMempool((event) => {
+      console.log(event);
+    });
+
+    socket.subscribeMicroblocks((event) => {
+      console.log(event);
+    });
 
     socket.subscribeAddressTransactions(
       "SPSTX06BNGJ2CP1F6WA8V49B6MYD784N6YZMK95G",

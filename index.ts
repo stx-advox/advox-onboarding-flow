@@ -8,6 +8,7 @@ import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate";
 import { handleInterview } from "./handlers/handleInterview";
 import { handleDidathingPropsReactions } from "./handlers/handleDidathingPropsReactions";
 import { handleSCBot } from "./handlers/sc-bot";
+import { handleTreasuryTx } from "./handlers/handleTreasuryTx";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
@@ -34,6 +35,7 @@ client.once("ready", async () => {
   handleSCBot(client);
   handleInterview(client);
   handleDidathingPropsReactions(client);
+  handleTreasuryTx(client);
 });
 
 // Login to Discord with your client's token
