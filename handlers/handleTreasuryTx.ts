@@ -55,7 +55,7 @@ Check it out here ${getTxUrl(tx_id)}`;
             (event) => event.event_type === "smart_contract_log"
           ) as TransactionEventSmartContractLog | undefined;
           if (firstMemo) {
-            const [, , memoText] = handleContractLogHex(
+            const [, memoText] = handleContractLogHex(
               firstMemo.contract_log.value.repr
             ).split(" ");
             await doAccountingForDistId(memoText, tx_id);
