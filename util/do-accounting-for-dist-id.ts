@@ -1,5 +1,5 @@
 import { getTxUrl, treasuryId } from "./constants";
-import { manager } from "./sc";
+import { manager, persistLedger } from "./sc";
 
 export const doAccountingForDistId = async (distId: string, txId: string) => {
   const ledgerResult = await manager.reloadLedger();
@@ -9,7 +9,8 @@ export const doAccountingForDistId = async (distId: string, txId: string) => {
       error: `Error processing ledger events: ${ledgerResult.error}`,
     };
   }
-  const { allocations } = manager.ledger.distribution(distId);
+  const { allocations, id, credTimestamp } =
+    manager.ledger.distribution(distId);
   for (let { receipts } of allocations) {
     for (let { id } of receipts) {
       const amount = manager.ledger.account(id).balance;
@@ -24,5 +25,9 @@ export const doAccountingForDistId = async (distId: string, txId: string) => {
     }
   }
 
-  await manager.persist();
+  await persistLedger(
+    `Automatic accounting for distribution ${id} distributed at ${new Date(
+      credTimestamp
+    )}`
+  );
 };

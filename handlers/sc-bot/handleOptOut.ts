@@ -15,7 +15,9 @@ export const deactivateAccount = async (message: Message) => {
     );
 
     ledger.deactivate(discordAccount.identity.id);
-    await persistLedger();
+    await persistLedger(
+      `Opted the user ${discordAccount.identity.name} from receiving rewards`
+    );
   } else {
     message.reply({ content: "You've already opted out!" });
   }

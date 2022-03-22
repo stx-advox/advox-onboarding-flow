@@ -21,7 +21,7 @@ export const setName = async (message: Message, name: string) => {
     // update the name of the identity related with the author's id with the new bns name
     ledger.renameIdentity(discordAccount.identity.id, nameEscaped);
     ledger.activate(discordAccount.identity.id);
-    await persistLedger();
+    await persistLedger(`Opted the user ${name} in to receive rewards!`);
   } else if (!discordAccount) {
     message.reply(
       "Sorry dude, did you just join the server today? try again tomorrow!"

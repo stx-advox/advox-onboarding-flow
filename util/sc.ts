@@ -15,8 +15,14 @@ export const loadLedger = async () => {
   return manager.ledger;
 };
 
-export const persistLedger = async () => {
-  const persistRes = await manager.persist();
+export const persistLedger = async (
+  message?: string,
+  author = {
+    name: "hz",
+    email: "13457698+hozzjss@users.noreply.github.com",
+  }
+) => {
+  const persistRes = await manager.persist(message, author);
 
   if (persistRes.error) {
     console.log(

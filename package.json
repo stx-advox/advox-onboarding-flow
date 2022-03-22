@@ -15,7 +15,7 @@
         "@stacks/stacks-blockchain-api-types": "^2.1.1",
         "cross-fetch": "^3.1.5",
         "discord.js": "^13.3.1",
-        "sourcecred": "^0.10.2"
+        "sourcecred": "^0.11.0"
     },
     "devDependencies": {
         "dotenv": "^10.0.0",
