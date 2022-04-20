@@ -69,6 +69,7 @@ client.once("ready", async () => {
         }
         if (messages.length > 1) {
           await persistLedger(messages.join("\n"));
+          jobs.forEach((job) => job.remove());
         }
       }
     }
