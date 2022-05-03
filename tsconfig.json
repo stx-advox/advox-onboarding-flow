@@ -10,6 +10,7 @@
         "strict": true,
         "skipLibCheck": true,
         "noImplicitAny": false,
+        "moduleResolution": "Node",
         "outDir": "lib"
     }
 }

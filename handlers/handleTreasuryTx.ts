@@ -28,7 +28,7 @@ function handleContractLogHex(repr: string) {
 
 export const handleTreasuryTx = async (client: Client) => {
   try {
-    const socket = await connectWebSocketClient("ws://localhost:3999");
+    const socket = await connectWebSocketClient(process.env.STACKS_URL);
     const txApi = new TransactionsApi();
 
     socket.subscribeAddressTransactions(
