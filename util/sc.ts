@@ -1,5 +1,9 @@
 import { config } from "dotenv";
 import { sourcecred } from "sourcecred";
+export const AUTHOR = {
+  name: "hz",
+  email: "13457698+hozzjss@users.noreply.github.com",
+};
 
 config();
 const storage = new sourcecred.ledger.storage.WritableGithubStorage({
@@ -15,13 +19,7 @@ export const loadLedger = async () => {
   return manager.ledger;
 };
 
-export const persistLedger = async (
-  message?: string,
-  author = {
-    name: "hz",
-    email: "13457698+hozzjss@users.noreply.github.com",
-  }
-) => {
+export const persistLedger = async (message?: string, author = AUTHOR) => {
   const persistRes = await manager.persist(message, author);
 
   if (persistRes.error) {

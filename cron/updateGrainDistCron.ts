@@ -6,6 +6,7 @@ import { sourcecred } from "sourcecred";
 import { IGrainConfig } from "../types";
 import path from "path";
 import stringify from "json-stable-stringify";
+import { AUTHOR } from "../util/sc";
 
 const getGithubWriteInstance =
   sourcecred.instance.writeInstance.getGithubWriteInstance;
@@ -52,7 +53,9 @@ export const updateGrainDistCron = () => {
 
         await sourcecredInstance._writableStorage.set(
           grainConfigPath,
-          stringify(newConfig, { space: 2 })
+          stringify(newConfig, { space: 2 }),
+          `Update grain amount last rewards ${lastCycleRewards / 1e8} BTC`,
+          AUTHOR
         );
 
         info.lastCycleId = lastCycleId;
