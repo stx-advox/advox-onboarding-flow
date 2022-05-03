@@ -21,7 +21,7 @@ const grainConfigPath = path.join(...GRAIN_PATH);
 export const updateGrainDistCron = () => {
   scheduler.scheduleJob(
     "update the xBTC amount distributed each week, happens every monday",
-    "0 1 * * *",
+    "0 0 * * 1",
     async () => {
       const infoData = await getPoXInfo();
       const [info] = await GrainInfo.find({}).exec();
