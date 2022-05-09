@@ -53,7 +53,7 @@ client.once("ready", async () => {
   handleSCBot(client);
   handleInterview(client);
   handleDidathingPropsReactions(client);
-  handleTreasuryTx(client);
+  // handleTreasuryTx(client);
 });
 
 // Login to Discord with your client's token
