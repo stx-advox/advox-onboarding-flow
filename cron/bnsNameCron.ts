@@ -18,9 +18,13 @@ export const bnsNameCron = () => {
           );
 
           // update the name of the identity related with the author's id with the new bns name
-          ledger.renameIdentity(discordAccount.identity.id, newName);
-          ledger.activate(discordAccount.identity.id);
-          messages.push(`Opted the user ${newName} in to receive rewards!`);
+          if (discordAccount && discordAccount.identity.name !== newName) {
+            ledger.renameIdentity(discordAccount.identity.id, newName);
+          }
+          if (discordAccount && !discordAccount.active) {
+            ledger.activate(discordAccount.identity.id);
+            messages.push(`Opted the user ${newName} in to receive rewards!`);
+          }
         }
         if (messages.length > 1) {
           await persistLedger(messages.join("\n"));
