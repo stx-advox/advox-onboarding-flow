@@ -1,3 +1,5 @@
+import fetch from "cross-fetch";
+
 export interface IStackerData {
   stackingTxs: StackingTxs;
   totalStacked: TotalStacked;
