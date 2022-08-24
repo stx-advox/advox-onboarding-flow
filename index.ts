@@ -11,6 +11,7 @@ import { handleSCBot } from "./handlers/sc-bot";
 // import { handleTreasuryTx } from "./handlers/handleTreasuryTx";
 import mongoose from "mongoose";
 import { setupCronJobs } from "./cron";
+import { handleClanRolesToggle } from "handlers/handleClanRoles";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
@@ -54,6 +55,7 @@ client.once("ready", async () => {
   handleSCBot(client);
   handleInterview(client);
   handleDidathingPropsReactions(client);
+  handleClanRolesToggle(client);
   // handleTreasuryTx(client);
 });
 
