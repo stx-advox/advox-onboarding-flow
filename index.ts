@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-import { Client, Intents } from "discord.js";
+import { Client, IntentsBitField } from "discord.js";
 import { STACKS_GUILD } from "./util/constants";
 import { config } from "dotenv";
 import { handleGiveTempRole } from "./handlers/handleGiveTempRole";
@@ -8,7 +8,7 @@ import { handleActivateAdvocate } from "./handlers/handleActivateAdvocate";
 import { handleInterview } from "./handlers/handleInterview";
 import { handleDidathingPropsReactions } from "./handlers/handleDidathingPropsReactions";
 import { handleSCBot } from "./handlers/sc-bot";
-import { handleTreasuryTx } from "./handlers/handleTreasuryTx";
+// import { handleTreasuryTx } from "./handlers/handleTreasuryTx";
 import mongoose from "mongoose";
 import { setupCronJobs } from "./cron";
 config();
@@ -18,10 +18,11 @@ const token = process.env["DISCORD_TOKEN"];
 // Create a new client instance
 const client = new Client({
   intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_MEMBERS,
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.MessageContent,
   ],
 });
 

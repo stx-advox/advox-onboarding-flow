@@ -1,4 +1,4 @@
-import { MessageOptions } from "discord.js";
+import { ComponentType, MessageOptions } from "discord.js";
 
 export const INTERVIEW_QUESTIONS_COMPONENT = {
   content: `Hello there and welcome to the stacks advocates program!
@@ -7,14 +7,14 @@ Take your time to answer by sending messages in this thread
 and then click on "All done, check answers!" whenever you feel comfortable with your answers!!`,
   components: [
     {
-      type: "ACTION_ROW",
+      type: ComponentType.ActionRow,
       components: [
         {
           customId: `have_bns_name`,
           placeholder: `Do you have a BNS name?`,
           maxValues: 1,
           minValues: 1,
-          type: "SELECT_MENU",
+          type: ComponentType.SelectMenu,
           options: [
             {
               label: `yes`,
@@ -55,13 +55,12 @@ and then click on "All done, check answers!" whenever you feel comfortable with 
   ],
   embeds: [
     {
-      type: "rich" as any,
       title: `Let's get you set up`,
       description: "",
       color: 0x00ffff,
       fields: [
         {
-          name: `How do you see yourself contributing to the stacks ecoystem?`,
+          name: `How do you see yourself contributing to the stacks ecosystem?`,
           value: `Examples include translations, dev work, moderation, tweets.`,
         },
         {

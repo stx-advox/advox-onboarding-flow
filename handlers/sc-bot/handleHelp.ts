@@ -27,7 +27,6 @@ export const handleHelp = (message: Message) => {
             image: {
               url: `https://gaia.blockstack.org/hub/1KnTB4Xkj3Lwqb1PUVegfCc4V6WMUsgGQY/2c69befaf70fe5c3a9feb1703b7a5c5344dcbd28e3de3856ba3c2ecf13353d59.jpg`,
             },
-            timestamp: new Date(),
             footer: {
               text: `Stacks Advocates DAO`,
             },

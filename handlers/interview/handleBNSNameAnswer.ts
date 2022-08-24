@@ -1,13 +1,13 @@
 import { Interaction, SelectMenuInteraction } from "discord.js";
 
-export const handleBNSNameAnswer = async (interaction: Interaction) => {
+export const handleBNSNameAnswer = (interaction: Interaction) => {
   try {
     if (
       interaction instanceof SelectMenuInteraction &&
       interaction.customId === "have_bns_name" &&
       !interaction.replied
     ) {
-      let content: string = "";
+      let content = "";
       switch (interaction.values[0]) {
         case "has_name": {
           content =

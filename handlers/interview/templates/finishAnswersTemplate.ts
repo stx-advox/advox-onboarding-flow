@@ -1,11 +1,15 @@
-import { MessageOptions } from "discord.js";
+import {
+  ButtonStyle,
+  ComponentType,
+  InteractionReplyOptions,
+} from "discord.js";
 import { ADVOCATE_WELCOME_ROLE } from "../../../util/constants";
 
-export const finishAnsweringText: MessageOptions = {
+export const finishAnsweringText: InteractionReplyOptions = {
   content: `Thank you for that, we're glad to have you, let's connect you to the <@&${ADVOCATE_WELCOME_ROLE}> team`,
   embeds: [
     {
-      color: "AQUA",
+      color: 0x00ffff,
       title: "Hello there welcomer!",
       description: `The next section is made especially for you 💖, whenever you feel satisfied with the answers just click on "Went well!"
 If not after the discussion then thank you for contributing and let's leave the discussion speak for itself!`,
@@ -13,16 +17,15 @@ If not after the discussion then thank you for contributing and let's leave the 
   ],
   components: [
     {
-      type: "ACTION_ROW",
+      type: ComponentType.ActionRow,
       components: [
         {
           customId: "interview_went_well",
-          type: "BUTTON",
+          type: ComponentType.Button,
           label: "Went well!",
-          style: "SUCCESS",
+          style: ButtonStyle.Success,
           emoji: {
             name: "☑️",
-            id: null,
           },
         },
       ],

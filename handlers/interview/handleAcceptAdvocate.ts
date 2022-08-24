@@ -34,7 +34,7 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
         const thread = (await interaction.channel?.fetch()) as ThreadChannel;
         const starterMessage = await thread.fetchStarterMessage();
         const guild = await thread.guild.fetch();
-        const member = await guild.members.fetch(starterMessage.author.id);
+        const member = await guild.members.fetch(starterMessage!.author.id);
         await member.roles.add(TEMP_ADVOCATE_ROLE);
         await interaction.reply(
           `All good and done! <@${member.id}>, to complete the registration just a few steps:

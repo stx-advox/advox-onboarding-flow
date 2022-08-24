@@ -1,4 +1,4 @@
-import { ButtonInteraction, Interaction, ThreadChannel } from "discord.js";
+import { ButtonInteraction, Interaction } from "discord.js";
 import { validateOnlyStarter } from "../../util/auth/interaction-only-starter";
 import { finishAnsweringText } from "./templates/finishAnswersTemplate";
 

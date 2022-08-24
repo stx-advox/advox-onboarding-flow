@@ -2,7 +2,7 @@ import {
   Client,
   GuildMember,
   MessagePayload,
-  SelectMenuInteraction,
+  ThreadAutoArchiveDuration,
 } from "discord.js";
 
 import { JOIN_REQUESTS_CHANNEL } from "../util/constants";
@@ -20,7 +20,7 @@ export const handleInterview = (client: Client) => {
 
         const thread = await message.startThread({
           name: `Welcome ${member.nickname || member.user.username}!`,
-          autoArchiveDuration: "MAX",
+          autoArchiveDuration: ThreadAutoArchiveDuration.OneWeek,
         });
         const interviewQuestions = new MessagePayload(
           thread,

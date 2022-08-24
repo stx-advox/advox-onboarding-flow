@@ -6,7 +6,7 @@ import {
 } from "../util/constants";
 import { getStacksServer } from "../util/discordUtils";
 
-export const handleActivateAdvocate = async (client: Client) => {
+export const handleActivateAdvocate = (client: Client) => {
   const stacks = getStacksServer(client);
   client.on("messageCreate", async (message) => {
     try {
