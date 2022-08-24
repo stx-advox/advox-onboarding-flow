@@ -11,7 +11,7 @@ import { handleSCBot } from "./handlers/sc-bot";
 // import { handleTreasuryTx } from "./handlers/handleTreasuryTx";
 import mongoose from "mongoose";
 import { setupCronJobs } from "./cron";
-import { handleClanRolesToggle } from "handlers/handleClanRoles";
+import { handleClanRolesToggle } from "./handlers/handleClanRoles";
 config();
 
 const token = process.env["DISCORD_TOKEN"];
