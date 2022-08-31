@@ -1,6 +1,6 @@
-import { ComponentType, MessageOptions } from "discord.js";
+import { ButtonStyle, ComponentType, MessageOptions } from "discord.js";
 
-export const INTERVIEW_QUESTIONS_COMPONENT = {
+export const INTERVIEW_QUESTIONS_COMPONENT: MessageOptions = {
   content: `Hello there and welcome to the stacks advocates program!
 a welcomer will be reviewing your answers so read carefully
 Take your time to answer by sending messages in this thread
@@ -39,13 +39,13 @@ and then click on "All done, check answers!" whenever you feel comfortable with 
       ],
     },
     {
-      type: "ACTION_ROW",
+      type: ComponentType.ActionRow,
       components: [
         {
           customId: "did_answer_question",
-          type: "BUTTON",
+          type: ComponentType.Button,
           label: "All done, check answers!",
-          style: "SUCCESS",
+          style: ButtonStyle.Success,
           emoji: {
             name: "☑️",
           },
@@ -70,4 +70,4 @@ and then click on "All done, check answers!" whenever you feel comfortable with 
       ],
     },
   ],
-} as MessageOptions;
+};
