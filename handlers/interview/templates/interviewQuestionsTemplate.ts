@@ -1,4 +1,9 @@
-import { ButtonStyle, ComponentType, MessageOptions } from "discord.js";
+import {
+  ButtonStyle,
+  ComponentType,
+  EmbedBuilder,
+  MessageOptions,
+} from "discord.js";
 
 export const INTERVIEW_QUESTIONS_COMPONENT: MessageOptions = {
   content: `Hello there and welcome to the stacks advocates program!
@@ -54,7 +59,7 @@ and then click on "All done, check answers!" whenever you feel comfortable with 
     },
   ],
   embeds: [
-    {
+    new EmbedBuilder({
       title: `Let's get you set up`,
       description: "",
       color: 0x00ffff,
@@ -68,6 +73,6 @@ and then click on "All done, check answers!" whenever you feel comfortable with 
           value: `We need that to know where to send the STX rewards, if you don't have enough STX to register one we'll be happy to provide that within a week`,
         },
       ],
-    },
+    }),
   ],
 };
