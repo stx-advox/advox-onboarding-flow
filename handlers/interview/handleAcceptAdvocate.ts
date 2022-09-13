@@ -1,6 +1,9 @@
 import {
   ButtonInteraction,
+  Client,
   Interaction,
+  Message,
+  PublicThreadChannel,
   TextChannel,
   ThreadChannel,
 } from "discord.js";
@@ -15,6 +18,7 @@ import {
   ADVOCATE_ROLE,
   DIDATHING_CHANNEL,
   PROPS_CHANNEL,
+  JOIN_REQUESTS_CHANNEL,
 } from "../../util/constants";
 
 export const handleAcceptAdvocate = async (interaction: Interaction) => {
@@ -62,4 +66,52 @@ export const handleAcceptAdvocate = async (interaction: Interaction) => {
   } catch (error) {
     console.log("[handleAcceptAdvocate]:", error);
   }
+};
+
+export const commandHandleAcceptAdvocate = (client: Client) => {
+  client.on("messageCreate", async (message: Message) => {
+    try {
+      const channel = message.channel as PublicThreadChannel;
+      if (
+        channel.isThread() &&
+        channel.parentId === JOIN_REQUESTS_CHANNEL &&
+        message.content === "!went_well"
+      ) {
+        const guild = await message.guild?.fetch();
+        const welcomer = await message.member?.fetch();
+        const isWelcomer =
+          welcomer?.roles.cache.has(ADVOCATE_ROLE) &&
+          welcomer?.roles.cache.has(WELCOME_TEAM_ROLE_ID);
+
+        if (welcomer && isWelcomer && guild) {
+          const thread = channel;
+          const starterMessage = await thread.fetchStarterMessage();
+
+          const member = await guild.members.fetch(starterMessage!.author.id);
+          await member.roles.add(TEMP_ADVOCATE_ROLE);
+          await message.reply(
+            `All good and done! <@${member.id}>, to complete the registration just a few steps:
+
+- Let us know your latest contributions to the ecosystem here <#${DIDATHING_CHANNEL}>
+
+- Go to <#${SC_BOT_COMMANDS_CHANNEL}> and send \`${UPDATE_NAME_COMMAND} [your btc name]\` so that we know where to send your rewards!
+
+- Check out <#${START_HERE_CHANNEL}> and <#${RESOURCES_CHANNEL}> for more information!`
+          );
+          const props = (await guild.channels.fetch(
+            PROPS_CHANNEL
+          )!) as TextChannel;
+          props.send(
+            `Props to <@${welcomer.id}> for welcoming our latest newcomer! check the interview here <#${thread.id}>!`
+          );
+        } else {
+          await message.reply({
+            content: "Sorry, this action is only allowed for the welcome team!",
+          });
+        }
+      }
+    } catch (error) {
+      console.log("[handleAcceptAdvocate]:", error);
+    }
+  });
 };
