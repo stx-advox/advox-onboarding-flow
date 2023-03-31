@@ -48,7 +48,7 @@ client.once("ready", async () => {
     });
 
   // setup cron jobs
-  setupCronJobs();
+  // setupCronJobs();
 
   handleGiveTempRole(client);
   handleVouch(client);
