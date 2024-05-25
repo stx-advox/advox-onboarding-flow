@@ -36,5 +36,10 @@
     "bugs": {
         "url": "https://github.com/hozzjss/advox-onboarding-flow/issues"
     },
-    "homepage": "https://github.com/hozzjss/advox-onboarding-flow#readme"
+    "homepage": "https://github.com/hozzjss/advox-onboarding-flow#readme",
+    "pnpm": {
+        "overrides": {
+            "better-sqlite3": "10.0.0"
+        }
+    }
 }
