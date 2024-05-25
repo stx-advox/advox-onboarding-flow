@@ -1,9 +1,9 @@
-import { Interaction, SelectMenuInteraction } from "discord.js";
+import { Interaction, StringSelectMenuInteraction } from "discord.js";
 
 export const handleBNSNameAnswer = (interaction: Interaction) => {
   try {
     if (
-      interaction instanceof SelectMenuInteraction &&
+      interaction instanceof StringSelectMenuInteraction &&
       interaction.customId === "have_bns_name" &&
       !interaction.replied
     ) {

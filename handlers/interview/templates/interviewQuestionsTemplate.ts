@@ -2,10 +2,10 @@ import {
   ButtonStyle,
   ComponentType,
   EmbedBuilder,
-  MessageOptions,
+  MessageCreateOptions,
 } from "discord.js";
 
-export const INTERVIEW_QUESTIONS_COMPONENT: MessageOptions = {
+export const INTERVIEW_QUESTIONS_COMPONENT: MessageCreateOptions = {
   content: `Hello there and welcome to the stacks advocates program!
 a welcomer will be reviewing your answers so read carefully
 Take your time to answer by sending messages in this thread
