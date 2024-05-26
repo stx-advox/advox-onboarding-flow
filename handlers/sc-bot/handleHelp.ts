@@ -15,7 +15,7 @@ export const handleHelp = (message: Message) => {
             **!sc help**
             Lists all commands.
 
-            **!sc update-bns-name**
+            **!sc update-bns-name yourbtcname.btc**
             Automatically sets your preferred bns name, and opts you in to receive rewards, the stacks address that owns this name would receive the rewards, you can get yours here https://btc.us
 
             **!sc ping**
